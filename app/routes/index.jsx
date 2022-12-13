@@ -14,7 +14,6 @@ export async function loader() {
   const res = await fetch(
     `http://localhost:1337/api/pages?${getQuery("home")}`
   );
-  console.log(`http://localhost:1337/api/pages?${getQuery("home")}`);
   return await res.json();
 }
 
