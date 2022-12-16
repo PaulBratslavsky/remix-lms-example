@@ -4,6 +4,13 @@ import qs from "qs";
 import { durationToTime } from "~/utils/duration-to-time";
 import { formatDate } from "~/utils/format-date";
 
+export const meta = ({ data }) => {
+  const { title } = data.data.attributes;
+  return {
+    title: title,
+  };
+};
+
 const QUERY = qs.stringify({
   populate: ["video"],
 });

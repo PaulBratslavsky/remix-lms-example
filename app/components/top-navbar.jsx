@@ -1,33 +1,28 @@
 import { useState } from "react";
 import { Link } from "@remix-run/react";
 
-const data = {
-  navigation: [
-    { id: 1, text: "Home", href: "/" },
-    { id: 2, text: "Lessons", href: "/lessons" },
-  ],
-};
+const navigation = [{ id: 2, text: "Lessons", href: "/lessons" }];
 
-export default function TopNavbar() {
+export default function TopNavbar({ menuItems }) {
+  const mergedItems = [...menuItems, ...navigation];
+
   const [isOpen, setIsOpen] = useState(false);
-
-  const { navigation } = data;
 
   return (
     <div className="sticky top-0 z-30 rounde bg-white p-4">
-      <nav className='container mx-auto bg-purple-700 px-4 rounded-lg '>
+      <nav className="container mx-auto bg-purple-700 px-4 rounded-lg ">
         <div className="lg:flex justify-between w-full py-8 hidden">
-        <Link to="/" className="text-white font-bold text-2xl">Strapi LMS</Link>
+          <Link to="/" className="text-white font-bold text-2xl">
+            Strapi LMS
+          </Link>
           <div className="lg:w-2/3 xl:w-1/2">
             <ul className="font-normal text-lg flex justify-end items-center text-color-gray-light">
-              {navigation.map((link, index) => (
+              {mergedItems.map((link, index) => (
                 <li
                   key={index}
-                  className="cursor-pointer ml-4 bold text-white font-bold"
+                  className="cursor-pointer ml-4 bold text-white capitalize font-bold"
                 >
-                  <Link to={link.href} >
-                    {link.text}
-                  </Link>
+                  <Link to={link.href}>{link.text}</Link>
                 </li>
               ))}
             </ul>
@@ -37,7 +32,9 @@ export default function TopNavbar() {
       <nav className="lg:hidden py-4 bg-purple-600 p-4 rounded-md">
         <div className="flex py-2 justify-between items-center">
           <div>
-          <Link to="/" className="text-white font-bold text-xl">Strapi LMS</Link>
+            <Link to="/" className="text-white font-bold text-xl">
+              Strapi LMS
+            </Link>
           </div>
           <div className="visible flex items-center">
             <ul
@@ -51,9 +48,7 @@ export default function TopNavbar() {
                   key={index}
                   className="text-xl flex flex-col cursor-pointer text-gray-600 leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none justify-center"
                 >
-                  <Link to={link.href} >
-                    {link.text}
-                  </Link>
+                  <Link to={link.href}>{link.text}</Link>
                 </li>
               ))}
             </ul>

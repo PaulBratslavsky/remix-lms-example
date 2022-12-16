@@ -10,6 +10,7 @@ function LessonItem({ lesson }) {
     <Link
       to={`/lessons/${lesson.id}`}
       className="relative max-h-24 bg-white flex flex-row overflow-hidden shadow-lg rounded-lg m-2"
+      prefetch='intent'
     >
       <div className="h-full w-1/3 overflow-hidden">
        

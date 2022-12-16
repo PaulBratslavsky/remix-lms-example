@@ -6,7 +6,7 @@ import CallToAction from '~/components/call-to-action';
 
 export default function BlockRenderer({ blocks }) {
   return blocks.map((block, index) => {
-    console.log(block, "Block Data");
+    // console.log(block, "Block Data");
     switch (block.__component) {
       case "blocks.hero":
         return <Hero key={index} data={block} />;

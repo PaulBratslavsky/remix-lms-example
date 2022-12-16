@@ -1007,6 +1007,10 @@ video {
   font-weight: 400;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .leading-8 {
   line-height: 2rem;
 }
